@@ -2,18 +2,32 @@
 <a href="<?php echo URLROOT; ?>/posts" class="btn btn-light"><i class="fa fa-backward"></i> Back</a>
 <div class="card card-body bg-light mt-5">
     <h2>
-        Add Post
+        Add Workout
     </h2>
-    <p> Create a post with this form</p>
+    <br>
+    <!-- <p> Create a post with this form</p> -->
     <form action="<?php echo URLROOT; ?>/posts/add" method="post">
+    <!-- pushups here -->
         <div class="form-group">
-            <label for="title"> Title: <sup>*</sup></label>
-            <input type="text" name="title" class="form-control form-control-lg <?php echo (!empty($data['title_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['title']; ?>">
-            <span class="invalid-feedback"><?php echo $data['title_err']; ?></span>
+            <label for="pushups"> Pushups</label>
+            <input type="number" name="pushups" class="form-control form-control-lg" value="<?php echo $data['pushups']; ?>">
         </div>
         <div class="form-group">
-            <label for="body"> Body: <sup>*</sup></label>
-            <textarea name="body" class="form-control form-control-lg <?php echo (!empty($data['body_err'])) ? 'is-invalid' : ''; ?>"> <?php echo $data['body']; ?> </textarea> <span class="invalid-feedback"><?php echo $data['body_err']; ?></span>
+            <label for="situps"> Situps</label>
+            <input type="number" name="situps" class="form-control form-control-lg"value="<?php echo $data['situps']; ?>">
+        </div>
+        <div class="form-group">
+            <label for="run_miles"> Run Miles</label>
+            <input type="number" name="run_miles" class="form-control form-control-lg" value="<?php echo $data['run_miles']; ?>">
+        </div>
+        <div class="form-group">
+            <label for="bike_miles"> Bike Miles</label>
+            <input type="number" name="bike_miles" class="form-control form-control-lg" value="<?php echo $data['bike_miles']; ?>">
+        </div>
+        <!-- leaving a note option, but it'll be optional, not required. -->
+        <div class="form-group">
+            <label for="body"> Notes </label>
+            <textarea name="body" class="form-control form-control-lg" value="<?php echo $data['body']; ?>">  </textarea> 
         </div>
         <input type="submit" class="btn btn-success" value="Submit">
     </form>

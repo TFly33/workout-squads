@@ -14,7 +14,7 @@ class Pages extends Controller
         }
         $data = [
             'title' => 'Shareposts',
-            'description' => 'Simple social network built on the MVC PHP framework'
+            'description' => 'Workout Competition'
         ];
 
 
@@ -25,7 +25,7 @@ class Pages extends Controller
     {
         $data = [
             'title' => 'About Us',
-            'description' => 'App to share posts with other users.'
+            'description' => 'Workout Competition App'
         ];
         $this->view('pages/about', $data);
     }

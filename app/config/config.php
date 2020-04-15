@@ -10,8 +10,8 @@ define('APPROOT',  dirname(dirname(__FILE__)));
 // URL Root 
 define('URLROOT', 'http://localhost:8080/workout-squads');
 // Site Name 
-define('SITENAME', 'Workout Squads');
+define('SITENAME', 'Workout-Squads');
 // App version
-define('APPVERSION', '1.0.0');
+define('APPVERSION', '1.1.0');
 
 

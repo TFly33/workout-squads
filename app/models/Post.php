@@ -30,11 +30,30 @@ class Post
     public function addPost($data)
     {
         // Inserting into the database. 
-        $this->db->query('INSERT INTO posts (title, user_id, body) VALUES (:title, :user_id, :body)');
+        $this->db->query('INSERT INTO posts (
+            pushups, 
+            user_id, 
+            body, 
+            situps, 
+            run_miles, 
+            bike_miles
+            ) 
+            VALUES 
+            (
+            :pushups, 
+            :user_id, 
+            :body, 
+            :situps, 
+            :run_miles, 
+            :bike_miles
+            )');
         // Bind values
-        $this->db->bind(':title', $data['title']);
+        $this->db->bind(':pushups', $data['pushups']);
         $this->db->bind(':user_id', $data['user_id']);
         $this->db->bind(':body', $data['body']);
+        $this->db->bind(':situps', $data['situps']);
+        $this->db->bind(':run_miles', $data['run_miles']);
+        $this->db->bind(':bike_miles', $data['bikes_miles']);
 
         // Execute 
         if ($this->db->execute()) {
