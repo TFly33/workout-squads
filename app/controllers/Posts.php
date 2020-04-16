@@ -30,48 +30,47 @@ class Posts extends Controller
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
-                // 'title' => trim($_POST['title']),
                 'body' => trim($_POST['body']),
                 'user_id' => $_SESSION['user_id'],
                 'pushups' => trim($_POST['pushups']),
                 'situps' => trim($_POST['situps']),
                 'run_miles' => trim($_POST['run_miles']),
                 'bike_miles' => trim($_POST['bike_miles']),
-                // 'title-err' => '',
-                // 'body-err' => '',
+                'body_err' => '',
             ];
 
-        
-            if (empty($data['pushups'] && empty($data['situps']) && empty($data['run_miles']) && empty($data['bike_miles']))) {
-                $data['body_err'] = 'Please enter at least one submission.';
-            } 
+            // Converting empties to zeroes.
+            if (empty($data['situps'])) {
+                $data['situps'] = 0;
+            }
+            if (empty($data['run_miles'])) {
+                $data['run_miles'] = 0;
+            }
+            if (empty($data['bike_miles'])) {
+                $data['bike_miles'] = 0;
+            }
+            if (empty($data['pushups'])) {
+                $data['pushups'] = 0;
+            }
 
-
-  // // Converting empties to zeroes.
-            // if (empty($data['situps'])) {
-            //     $data['situps'] == 0;
-            // }
-            // if (empty($data['run_miles'])) {
-            //     $data['run_miles'] == 0;
-            // }
-            // if (empty($data['bike_miles'])) {
-            //     $data['bike_miles'] == 0;
-            // }
-
-            // if (empty($data['body'])) {
-            //     $data['body_err'] = 'Please enter body text';
+            // Trying to have the following validation: 
+            // 1. Everything that is blank gets converted to a zero ^ 
+            // 2. If all of the workout submissions are zeros, an error message appears. For some reason this isn't working. 
+            // if ($data['pushups'] === 0 && $data['situps'] === 0 && $data['run_miles'] === 0 && $data['bike_miles'] === 0) {
+            //     $data['body_err'] = 'Please enter at least one workout, you lazy piece of shit.';
             // }
 
             // Make sure there are no errors. 
-            // if (empty($data['title_err']) && empty($data['body_err'])) {
-                // Validated
-                if ($this->postModel->addPost($data)) {
-                    flash('post_message', 'Post Added');
-                    redirect('posts');
-                } else {
-                    die('Something went wrong');
-                }
-            
+            // if (empty($data['body_err'])) {
+            // Validated
+            if ($this->postModel->addPost($data)) {
+                flash('post_message', 'Post Added');
+                redirect('posts');
+            } else {
+                die('Something went wrong');
+                // }
+            }
+
             // } else {
             //     // Load view with errors
             //     $this->view('posts/add', $data);
