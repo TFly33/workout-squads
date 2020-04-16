@@ -53,7 +53,7 @@ class Post
         $this->db->bind(':body', $data['body']);
         $this->db->bind(':situps', $data['situps']);
         $this->db->bind(':run_miles', $data['run_miles']);
-        $this->db->bind(':bike_miles', $data['bikes_miles']);
+        $this->db->bind(':bike_miles', $data['bike_miles']);
 
         // Execute 
         if ($this->db->execute()) {

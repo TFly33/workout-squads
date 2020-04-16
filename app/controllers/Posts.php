@@ -41,10 +41,20 @@ class Posts extends Controller
                 // 'body-err' => '',
             ];
 
-            // // Validate data 
-            // if (empty($data['title'])) {
-            //     $data['title_err'] = 'Please enter title';
-            // }
+            // // Converting empties to zeroes.
+        
+            if (empty($data['pushups'])) {
+                $data['pushups'] == 0;
+            }
+            if (empty($data['situps'])) {
+                $data['situps'] == 0;
+            }
+            if (empty($data['run_miles'])) {
+                $data['run_miles'] == 0;
+            }
+            if (empty($data['bike_miles'])) {
+                $data['bike_miles'] == 0;
+            }
             // if (empty($data['body'])) {
             //     $data['body_err'] = 'Please enter body text';
             // }

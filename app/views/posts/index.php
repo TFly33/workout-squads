@@ -15,11 +15,28 @@
         <h4 class="card-title">
             <?php echo $post->name; ?>
         </h4>
+    <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Pushups</th>
+      <th scope="col">Situps</th>
+      <th scope="col">Run Miles</th>
+      <th scope="col">Bike Miles</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><?php echo $post->pushups; ?></td>
+      <td><?php echo $post->situps; ?></td>
+      <td><?php echo $post->run_miles; ?></td>
+      <td><?php echo $post->bike_miles; ?></td>
+    </tr>
+    </tbody>
+    </table>
         <div class="bg-light p-2 mb-3">
             <!-- written by username -->
             Posted on <?php echo $post->postCreated; ?>
         </div>
-        <p class="card-text">Situps: <?php echo $post->situps; ?></p>
         <p class="card-text"><?php echo $post->body; ?></p>
         <a href="<?php echo URLROOT; ?>/posts/show/<?php echo $post->postID; ?>" class="btn btn-dark"> More
         </a>
