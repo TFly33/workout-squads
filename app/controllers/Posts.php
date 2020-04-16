@@ -41,20 +41,23 @@ class Posts extends Controller
                 // 'body-err' => '',
             ];
 
-            // // Converting empties to zeroes.
         
-            if (empty($data['pushups'])) {
-                $data['pushups'] == 0;
-            }
-            if (empty($data['situps'])) {
-                $data['situps'] == 0;
-            }
-            if (empty($data['run_miles'])) {
-                $data['run_miles'] == 0;
-            }
-            if (empty($data['bike_miles'])) {
-                $data['bike_miles'] == 0;
-            }
+            if (empty($data['pushups'] && empty($data['situps']) && empty($data['run_miles']) && empty($data['bike_miles']))) {
+                $data['body_err'] = 'Please enter at least one submission.';
+            } 
+
+
+  // // Converting empties to zeroes.
+            // if (empty($data['situps'])) {
+            //     $data['situps'] == 0;
+            // }
+            // if (empty($data['run_miles'])) {
+            //     $data['run_miles'] == 0;
+            // }
+            // if (empty($data['bike_miles'])) {
+            //     $data['bike_miles'] == 0;
+            // }
+
             // if (empty($data['body'])) {
             //     $data['body_err'] = 'Please enter body text';
             // }
@@ -68,6 +71,7 @@ class Posts extends Controller
                 } else {
                     die('Something went wrong');
                 }
+            
             // } else {
             //     // Load view with errors
             //     $this->view('posts/add', $data);

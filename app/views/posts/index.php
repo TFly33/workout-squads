@@ -11,11 +11,13 @@
     </div>
 </div>
 <?php foreach ($data['posts'] as $post) : ?>
+<div class="container">
     <div class="card card-body mb-3">
+        <div class="container">
         <h4 class="card-title">
             <?php echo $post->name; ?>
         </h4>
-    <table class="table">
+    <table class="table table-striped table-dark">
     <thead class="thead-dark">
     <tr>
       <th scope="col">Pushups</th>
@@ -40,6 +42,8 @@
         <p class="card-text"><?php echo $post->body; ?></p>
         <a href="<?php echo URLROOT; ?>/posts/show/<?php echo $post->postID; ?>" class="btn btn-dark"> More
         </a>
+        </div>
+    </div>
     </div>
 
 <?php endforeach; ?>

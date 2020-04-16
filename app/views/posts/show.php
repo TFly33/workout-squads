@@ -1,10 +1,29 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <a href="<?php echo URLROOT; ?>/posts" class="btn btn-light"><i class="fa fa-backward"></i> Back</a>
 <br>
-<h1><?php echo $data['post']->title; ?></h1>
+<br>
+<!-- <h1><?php echo $data['post']->title; ?></h1> -->
 <div class="bg-secondary text-white p-2 mb-3">
     Written by <?php echo $data['user']->name; ?> on <?php echo $data['post']->created_at; ?>
 </div>
+<table class="table table-striped table-dark">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Pushups</th>
+      <th scope="col">Situps</th>
+      <th scope="col">Run Miles</th>
+      <th scope="col">Bike Miles</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><?php echo $data['post']->pushups; ?></td>
+      <td><?php echo $data['post']->situps; ?></td>
+      <td><?php echo $data['post']->run_miles; ?></td>
+      <td><?php echo $data['post']->bike_miles; ?></td>
+    </tr>
+    </tbody>
+    </table>
 <p><?php echo $data['post']->body; ?></p>
 
 <?php if ($data['post']->user_id == $_SESSION['user_id']) : ?>
