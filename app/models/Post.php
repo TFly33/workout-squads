@@ -28,7 +28,8 @@ class Post
     }
 
     public function addPost($data)
-    {
+    {   
+        // This works 
         // Inserting into the database. 
         $this->db->query('INSERT INTO posts (
             pushups, 
@@ -46,14 +47,17 @@ class Post
             :situps, 
             :run_miles, 
             :bike_miles
-            )
-            -- But now I need to address the fact that the user might already have existing submissions. If thats the case, I need the new submission to be ADDED, but not become the new number entirely
-            ON DUPLICATE KEY UPDATE 
-            -- situps = existing situps + added situps.
-            situps = situps + :situps
+            )');
 
-            -- WHERE user_id = ":user_id"
-            ');
+        // // This doesn't work. 
+        // $this->db->query('UPDATE posts SET
+        // pushups = pushups +:pushups,
+        // situps = situps +:situps,
+        // run_miles = run_miles+:run_miles,
+        // bike_miles = bike_miles+:bike_miles,
+        // user_id = :user_id,
+        // WHERE 
+        // user_id = :user_id');
         // Bind values
         $this->db->bind(':pushups', $data['pushups']);
         $this->db->bind(':user_id', $data['user_id']);

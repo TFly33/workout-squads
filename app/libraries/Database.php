@@ -79,13 +79,15 @@ class Database
     }
 
     // Get single record as object. 
-    public function single(){
+    public function single()
+    {
         $this->execute();
         return $this->stmt->fetch(PDO::FETCH_OBJ);
     }
 
     // Get row count 
-    public function rowCount(){
+    public function rowCount()
+    {
         return $this->stmt->rowCount();
     }
 }
