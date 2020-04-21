@@ -56,9 +56,9 @@ class Posts extends Controller
             // Trying to have the following validation: 
             // 1. Everything that is blank gets converted to a zero ^ 
             // 2. If all of the workout submissions are zeros, an error message appears. For some reason this isn't working. 
-            // if ($data['pushups'] === 0 && $data['situps'] === 0 && $data['run_miles'] === 0 && $data['bike_miles'] === 0) {
-            //     $data['body_err'] = 'Please enter at least one workout, you lazy piece of shit.';
-            // }
+            if ($data['pushups'] === 0 && $data['situps'] === 0 && $data['run_miles'] === 0 && $data['bike_miles'] === 0) {
+                $data['body_err'] = 'Please enter at least one workout, you lazy piece of shit.';
+            }
 
             // Make sure there are no errors. 
             // if (empty($data['body_err'])) {
