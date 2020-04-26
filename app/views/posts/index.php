@@ -24,11 +24,11 @@
                 <tbody>
                     <tr>
                         <td>Tommy Flynn</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>$320,800</td>
+                        <td> INSERT PUSHUPS FOR TOMMY </td>
+                        <td>INSERT SITUPS FOR TOMMY</td>
+                        <td>INSERT Run_Miles FOR TOMMY</td>
+                        <td>INSERT Bike_Miles FOR TOMMY</td>
+                        <td>INSERT Totals FOR TOMMY</td>
                     </tr>
                     <tr>
                         <td>Anne Flynn</td>
